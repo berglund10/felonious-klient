@@ -1,10 +1,16 @@
+import React from 'react'
+import { Routing } from './routes/Routing'
+import {Navbar} from './components/navbar/Navbar'
+import './shared/global/Global.css'
+import {UserProvider} from './shared/global/UserProvider'
+
 function App() {
   return (
-    <div>
-      <h1>
-      Felonious
-      </h1>
-    </div>
+    <UserProvider>
+    <Routing>
+      <Navbar/>
+    </Routing>
+    </UserProvider>
   );
 }
 
