@@ -6,6 +6,7 @@ import { LoginView } from '../view/LoginView';
 import { GameView } from '../view/GameView';
 import { CommunityView } from '../view/CommunityView';
 import { ProfileView } from '../view/ProfileView';
+import { ProfileEgenskaper } from '../components/profile/ProfileEgenskaper';
  
 
 export const Routing = (props) => {
@@ -17,6 +18,7 @@ export const Routing = (props) => {
                 <Route exact path={RoutingPath.communityView} element={<CommunityView/>}/>
                 <Route exact path={RoutingPath.profileView} element={<ProfileView/>}/>
                 <Route exact path={RoutingPath.loginView} element={<LoginView/>}/>
+                <Route exact path={'/profileEgenskaper'} element={<ProfileEgenskaper/>}/>
                 <Route path={RoutingPath.homeView} element={<HomeView/>}/>
             </Routes>
         </Router>

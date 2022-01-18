@@ -10,5 +10,5 @@ export default {
     loginView,
     communityView,
     gameView,
-    profileView
+    profileView,
 }
