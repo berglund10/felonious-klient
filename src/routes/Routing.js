@@ -13,10 +13,10 @@ export const Routing = (props) => {
         <Router>
             {props.children}
             <Routes>
-                <Route exact path={RoutingPath.loginView} element={<LoginView/>}/>
                 <Route exact path={RoutingPath.gameView} element={<GameView/>}/>
                 <Route exact path={RoutingPath.communityView} element={<CommunityView/>}/>
                 <Route exact path={RoutingPath.profileView} element={<ProfileView/>}/>
+                <Route exact path={RoutingPath.loginView} element={<LoginView/>}/>
                 <Route path={RoutingPath.homeView} element={<HomeView/>}/>
             </Routes>
         </Router>

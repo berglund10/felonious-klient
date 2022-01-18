@@ -8,7 +8,7 @@ export const ProfileView = () => {
 
     const displayUserIfAuth = () => {
         return (authUser) 
-        ? <div><h1>Dina egenskaper: {authUser}</h1><h3>Egenskaper</h3><Profile/></div>
+        ? <div><h1>Användare: {authUser}</h1><h3>Egenskaper</h3><Profile/></div>
         : <h3>Du måste vara inloggad för att få mer information</h3>
     }
 
