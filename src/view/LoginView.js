@@ -1,9 +1,26 @@
 import React, {useState, useContext} from 'react'
 import { UserContext } from '../shared/global/UserProvider'
 import {useNavigate} from 'react-router-dom'
+import Axios from 'axios'
 
 
 export const LoginView = () => {
+
+    const loginUser = () => {
+        Axios.post('http://localhost:3001/login', {
+            username: username,
+            password: password
+        })
+        .then((response) => {
+            login()
+            console.log(response)
+        })
+        .catch((error) => {
+            console.log(error)
+            alert("användaren finns inte i db")
+        })
+    }
+
 
     const history = useNavigate()
 
@@ -22,8 +39,7 @@ export const LoginView = () => {
         <div>
                 <span>Username:  </span><input onChange={(event => setUsername(event.target.value))}></input> <br/>
                 <span>Password:  </span><input type="password"onChange={(event => setPassword(event.target.value))}></input> <br/>
-                <button onClick={() => login()}>Login {password}</button>
-                <button onClick={() => alert(authUser)}>Show auth user</button>
+                <button onClick={() => loginUser()}>Logga in</button>
         </div>
     )
 }
