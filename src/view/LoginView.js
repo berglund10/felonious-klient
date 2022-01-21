@@ -1,8 +1,11 @@
 import React, {useState, useContext} from 'react'
 import { UserContext } from '../shared/global/UserProvider'
+import {useNavigate} from 'react-router-dom'
 
 
 export const LoginView = () => {
+
+    const history = useNavigate()
 
     const [username, setUsername] = useState()
     const [password, setPassword] = useState()
@@ -10,6 +13,8 @@ export const LoginView = () => {
 
     const login = () => {
         setAuthUser(username)
+        localStorage.setItem("username", username)
+        history('/community')
     }
 
 

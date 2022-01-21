@@ -1,13 +1,18 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from 'react';
+import React, {useContext} from 'react';
 import {useNavigate} from 'react-router-dom';
 import RoutingPath from '../../routes/RoutingPath';
-import { ProfileEgenskaper } from './ProfileEgenskaper';
-import { HomeView } from '../../view/HomeView';
+import { UserContext } from '../../shared/global/UserProvider';
 
 export const Profilebar = () => {
 
+    const [authUser, setAuthUser] = useContext(UserContext)
     const history = useNavigate();
+
+    const logout = () => {
+        localStorage.removeItem("username")
+        setAuthUser(false)
+    }
 
     return(
         <div>
@@ -17,6 +22,7 @@ export const Profilebar = () => {
         <li className='profilelink' onClick={() => history(RoutingPath.profileView)} >Historia</li>
         <li className='profilelink' onClick={() => history(RoutingPath.profileView)} >Statistik</li>
         <li className='profilelink' onClick={() => history(RoutingPath.profileView)} >Utrustning</li>
+        <button onClick={() => logout()}>Logga ut</button>
          </div>
     )
 }
