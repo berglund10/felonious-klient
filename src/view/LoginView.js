@@ -11,9 +11,8 @@ export const LoginView = () => {
             username: username,
             password: password
         })
-        .then((response) => {
+        .then(() => {
             login()
-            console.log(response)
         })
         .catch((error) => {
             console.log(error)
