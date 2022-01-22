@@ -16,7 +16,7 @@ export const LoginView = () => {
             if(response.data.username === username && response.data.password === password) {
                 (response.data.character === undefined) 
                 ? login('/createchar')
-                : login('/community')
+                : login('/game')
             }         
         })
         .catch((error) => {

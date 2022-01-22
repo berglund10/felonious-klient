@@ -1,8 +1,10 @@
 import React, {useState} from 'react';
 import Axios from 'axios'
+import { useNavigate } from 'react-router-dom';
 
 export const CreateUserView = () => {
 
+    const history = useNavigate()
     const [username, setUsername] = useState()
     const [password, setPassword] = useState()
 
@@ -13,6 +15,7 @@ export const CreateUserView = () => {
             })
             .then(() => {
                 console.log("Användaren har skapats")
+                history('/game')
             })
     }
 

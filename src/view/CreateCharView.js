@@ -1,10 +1,12 @@
 import React , {useState} from 'react'
 import Axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 export const CreateCharView = () => {
 
     const [health, setHealth] = useState()
     const [strength, setStrength] = useState()
+    const history = useNavigate()
 
     const username = localStorage.getItem('username')
 
@@ -16,6 +18,9 @@ export const CreateCharView = () => {
                 health: health,
                 strength: strength,
             })
+        })
+        .then(() => {
+            history('/game')
         })
     }
 

@@ -5,6 +5,7 @@ import { UserContext } from "../shared/global/UserProvider";
 export const GameView = () => {
 
     const [authUser, setAuthUser] = useContext(UserContext);
+    
 
     const displayUserIfAuth = () => {
         return (authUser) 
