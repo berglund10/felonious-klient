@@ -1,8 +1,7 @@
 import React, {useState, useContext} from 'react'
 import { UserContext } from '../shared/global/UserProvider'
-import {useNavigate} from 'react-router-dom'
+import {resolvePath, useNavigate} from 'react-router-dom'
 import Axios from 'axios'
-import RoutingPath from '../routes/RoutingPath'
 
 
 export const LoginView = () => {
@@ -13,10 +12,12 @@ export const LoginView = () => {
             password: password
         })
         .then((response) => {
-            (response.data.character === undefined) 
-            ? login('/createchar')
-            : login('/community')
-            
+            console.log(response)
+            if(response.data.username === username && response.data.password === password) {
+                (response.data.character === undefined) 
+                ? login('/createchar')
+                : login('/community')
+            }         
         })
         .catch((error) => {
             console.log(error)
@@ -36,7 +37,6 @@ export const LoginView = () => {
         localStorage.setItem("username", username)
         localStorage.setItem("password", password)
         history(navigateToView)
-        // Kolla ifall användaren har en character, om inte gå till sida för att skapa en.
     }
 
 
@@ -45,6 +45,9 @@ export const LoginView = () => {
                 <span>Username:  </span><input onChange={(event => setUsername(event.target.value))}></input> <br/>
                 <span>Password:  </span><input type="password"onChange={(event => setPassword(event.target.value))}></input> <br/>
                 <button onClick={() => loginUser()}>Logga in</button>
+                <br/>
+                <br/>
+                <button onClick={() => history('/createuser')}>Skapa konto</button>
         </div>
     )
 }
