@@ -2,6 +2,7 @@ import React, {useState, useContext} from 'react'
 import { UserContext } from '../shared/global/UserProvider'
 import {useNavigate} from 'react-router-dom'
 import Axios from 'axios'
+import RoutingPath from '../routes/RoutingPath'
 
 
 export const LoginView = () => {
@@ -11,8 +12,11 @@ export const LoginView = () => {
             username: username,
             password: password
         })
-        .then(() => {
-            login()
+        .then((response) => {
+            (response.data.character === undefined) 
+            ? history(RoutingPath.createcharView)
+            : login()
+            
         })
         .catch((error) => {
             console.log(error)
@@ -31,6 +35,7 @@ export const LoginView = () => {
         setAuthUser(username)
         localStorage.setItem("username", username)
         history('/community')
+        // Kolla ifall användaren har en character, om inte gå till sida för att skapa en.
     }
 
 

@@ -19,7 +19,7 @@ export const Profilebar = () => {
         <li className='profilelink' onClick={() => history(RoutingPath.profileView)} >Info</li>
         <li className='profilelink' onClick={() => history(RoutingPath.profileView)} >Biografi</li>
         <li className='profilelink' onClick={() => history(RoutingPath.gameView)} >Egenskaper</li>
-        <li className='profilelink' onClick={() => history(RoutingPath.profileView)} >Historia</li>
+        <li className='profilelink' onClick={() => history(RoutingPath.createcharView)} >Historia</li>
         <li className='profilelink' onClick={() => history(RoutingPath.profileView)} >Statistik</li>
         <li className='profilelink' onClick={() => history(RoutingPath.profileView)} >Utrustning</li>
         <button onClick={() => logout()}>Logga ut</button>

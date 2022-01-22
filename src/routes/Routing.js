@@ -8,6 +8,7 @@ import { CommunityView } from '../view/CommunityView';
 import { ProfileView } from '../view/ProfileView';
 import { ProfileEgenskaper } from '../components/profile/ProfileEgenskaper';
 import {UserContext} from '../shared/global/UserProvider'
+import { CreateCharView } from '../view/CreateCharView';
 
 
 
@@ -38,6 +39,7 @@ export const Routing = (props) => {
             <Routes>
                 <Route exact path={RoutingPath.gameView} element={<GameView/>}/>
                 <Route exact path={RoutingPath.communityView} element={<CommunityView/>}/>
+                <Route exact path={RoutingPath.createcharView} element={<CreateCharView/>}/>
                 <Route exact path={RoutingPath.profileView} element={blockRouteIfNotAuth(<ProfileView/>)}/>
                 <Route exact path={RoutingPath.loginView} element={blockRouteIfAuth(<LoginView/>)}/>
                 <Route exact path={'/profileEgenskaper'} element={<ProfileEgenskaper/>}/>
