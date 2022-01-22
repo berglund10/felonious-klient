@@ -14,8 +14,8 @@ export const LoginView = () => {
         })
         .then((response) => {
             (response.data.character === undefined) 
-            ? history(RoutingPath.createcharView)
-            : login()
+            ? login('/createchar')
+            : login('/community')
             
         })
         .catch((error) => {
@@ -31,10 +31,11 @@ export const LoginView = () => {
     const [password, setPassword] = useState()
     const [authUser, setAuthUser] = useContext(UserContext)
 
-    const login = () => {
+    const login = (navigateToView) => {
         setAuthUser(username)
         localStorage.setItem("username", username)
-        history('/community')
+        localStorage.setItem("password", password)
+        history(navigateToView)
         // Kolla ifall användaren har en character, om inte gå till sida för att skapa en.
     }
 
