@@ -22,6 +22,7 @@ export const Profilebar = () => {
         <li className='profilelink' onClick={() => history(RoutingPath.createcharView)} >Historia</li>
         <li className='profilelink' onClick={() => history(RoutingPath.profileView)} >Statistik</li>
         <li className='profilelink' onClick={() => history(RoutingPath.profileView)} >Utrustning</li>
+        <br/>
         <button onClick={() => logout()}>Logga ut</button>
          </div>
     )

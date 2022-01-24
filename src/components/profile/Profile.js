@@ -1,11 +1,14 @@
 import React, { useContext } from 'react'
 import { UserContext } from '../../shared/global/UserProvider'
 import { Profilebar } from './Profilebar'
+import lacan from '../../shared/images/lacan2.png'
 
 export const Profile = () => {
     const [authUser, setAuthUser] = useContext(UserContext)
     return (
         <div>
+            <img src={lacan} alt="Logo" width="130px" height="130px"/>;
+            <br/>
             Namn: {authUser}
             <br/>
             Grad: 10
