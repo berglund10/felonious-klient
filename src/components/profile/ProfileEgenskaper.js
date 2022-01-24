@@ -10,7 +10,7 @@ export const ProfileEgenskaper = () => {
     const [character_id, setCharacter_id] = useState()
     const username = localStorage.getItem('username')
 
-    const MINUTE_MS = 10000;
+    const MINUTE_MS = 180000;
 
     useEffect(() => {
         getUserInfo()

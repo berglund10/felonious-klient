@@ -1,0 +1,29 @@
+.container {
+    color: black;
+    text-align: center;
+    display: grid;
+    grid-gap: 3px;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 40px 500px;
+    grid-template-areas: 
+    "h h h h h h h h h h h h"
+    "m m c c c c c c c c f f"
+    "m m c c c c c c c c f f";
+}
+
+.header {
+    grid-area: h;
+    border-style: solid;
+}
+.menu2 {
+    grid-area: f;
+    border-style: solid;
+}
+.menu1 {
+    grid-area: m;
+    border-style: solid;
+}
+.content {
+    grid-area: c;
+    border-style: solid;
+}
