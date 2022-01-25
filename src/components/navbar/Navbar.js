@@ -11,9 +11,8 @@ export const Navbar = () => {
     return(
         <div className="navbarWrapper">
         <a onClick={() => history(RoutingPath.homeView)} >Home</a>
-        <a onClick={() => history(RoutingPath.communityView)} >Community</a>
+        <a onClick={() => history(RoutingPath.loginView)} >Log in</a>
         <a onClick={() => history(RoutingPath.gameView)} >Game</a>
-        <a onClick={() => history(RoutingPath.profileView)} >Profile</a>
          </div>
     )
 }
