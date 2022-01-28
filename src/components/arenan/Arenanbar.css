@@ -1,0 +1,13 @@
+.profilebarWrapper {
+    text-align: center;
+    border-bottom: 6px solid grey;
+    padding-bottom: 50px;
+    padding-top: 10px;
+}
+.profilelink {
+    font-size: 10px;
+    font-weight: 800;
+    font-family: cursive;
+    color: black;
+    cursor: pointer;
+}

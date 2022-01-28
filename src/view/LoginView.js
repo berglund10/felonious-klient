@@ -12,9 +12,8 @@ export const LoginView = () => {
             password: password
         })
         .then((response) => {
-            console.log(response)
-            if(response.data.username === username && response.data.password === password) {
-                (response.data.character === undefined) 
+            if(response.data.rows[0].username === username && response.data.rows[0].password === password) {
+                (response.data.rows[0].character_id === null) 
                 ? login('/createchar')
                 : login('/game')
             }         

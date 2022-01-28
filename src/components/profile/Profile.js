@@ -4,6 +4,7 @@ import { Profilebar } from './Profilebar'
 import lacan from '../../shared/images/lacan2.png'
 
 export const Profile = () => {
+    
     const [authUser, setAuthUser] = useContext(UserContext)
     return (
         <div>

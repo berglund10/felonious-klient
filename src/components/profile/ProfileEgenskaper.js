@@ -1,49 +1,40 @@
 import React, { useState, useEffect } from 'react'
 import Axios from 'axios'
+import { useNavigate} from 'react-router-dom'
 
 export const ProfileEgenskaper = () => {
 
+    useEffect(() => {
+        getUserInfo()
+      });
 
+
+    const history = useNavigate()
     const [health, setHealth] = useState()
     const [strength, setStrength] = useState()
     const [rundor, setRundor] = useState()
-    const [character_id, setCharacter_id] = useState()
+    const [mynt, setMynt] = useState()
     const username = localStorage.getItem('username')
 
-    const MINUTE_MS = 180000;
-
-    useEffect(() => {
-        getUserInfo()
-        const interval = setInterval(() => {
-            updateRundor()
-        }, MINUTE_MS);
-
-        return () => clearInterval(interval);
-    }, [rundor])
-
-    const updateRundor = () => {
-        getUserInfo()
-        Axios.put(`http://localhost:3001/char/${character_id}`).then(() => {
-            console.log("Rundor uppdaterade")
+    const getUserInfo = () => {
+        Axios.get(`http://localhost:3001/userinfo/?username=${username}`, {
+        }).then((response) => {
+            if(response.data[0].health) {
+                setHealth(response.data[0].health)
+                setStrength(response.data[0].strength)
+                setRundor(response.data[0].rundor)
+                setMynt(response.data[0].mynt)
+            } 
+        }).catch((error) => {
+            console.log(error)
         })
     }
 
-    const getUserInfo = () => {
-        Axios.get(`http://localhost:3001/searchuser?username=${username}`)
-            .then((response) => {
-                setCharacter_id(response.data[0].character)
-                getCharInfo(response.data[0].character)
-            })
-            .catch((error) => {
-                console.log(error)
-            })
-    }
-
-    const getCharInfo = (character_id) => {
-        Axios.get(`http://localhost:3001/char/${character_id}`).then((res) => {
-            setHealth(res.data.health)
-            setStrength(res.data.strength)
-            setRundor(res.data.rundor)
+    const deleteChar = () => {
+        Axios.put(`http://localhost:3001/users`, {
+            username: username
+        }).then(() => {
+            history('/home')
         })
     }
 
@@ -55,7 +46,7 @@ export const ProfileEgenskaper = () => {
             Detta är dina egenskaper:
             <button onClick={() => getUserInfo()}>Hämta info</button>
             <br />
-            <button onClick={() => updateRundor()}>Update rundor</button>
+            <br />
             <br />
             Hälsa: {health}
             <br />
@@ -63,7 +54,10 @@ export const ProfileEgenskaper = () => {
             <br />
             Stryka: {strength}
             <br />
-
+            Mynt: {mynt}
+            <br />
+            <br />
+            <button onClick={() => deleteChar()}>Ta bort char</button>
         </div>
     )
 }
