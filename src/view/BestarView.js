@@ -26,7 +26,6 @@ export const BestarView = () => {
     return(
         <div>
             <br/>
-            <button onClick={() => toUtamningView()}>Till utamning</button>
             <br/>
             <ul>
                 {bestar.map(b => <li>{b.name} Health: {b.health} Strength: {b.strength} <button onClick={() => toUtamningView(b.name)}>Utmana</button></li>)}

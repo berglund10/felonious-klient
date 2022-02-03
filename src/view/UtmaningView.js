@@ -1,10 +1,11 @@
 import React, {useEffect, useState}  from 'react'
-import {useLocation} from 'react-router-dom';
+import {useLocation, useNavigate} from 'react-router-dom';
 import Axios from 'axios'
 import { WinView } from './WinView';
 
 export const UtamingView = () => {
 
+    const history = useNavigate()
     const username = localStorage.getItem('username')
 
     const getUserInfo = () => {
@@ -23,12 +24,18 @@ export const UtamingView = () => {
     useEffect(() => {
         getOneBest()
         getUserInfo()
-      },[]);
+      },[])
+
+      const toWinView=(status)=>{
+        history('/win',{state:{status:status}});
+          }
+
+
 
     const utmanaBest = () => {
         return (character[0].strength > bestar[0].strength)
-        ? console.log("du vann")
-        : console.log("du förlorade")
+        ? toWinView("vann")
+        : toWinView("förlorade")
     }
 
     const getOneBest = () => {
