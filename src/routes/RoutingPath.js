@@ -5,6 +5,9 @@ const profileView = '/profile'
 const homeView = '/'
 const createcharView = '/createchar'
 const createuserView = '/createuser'
+const bestarView = '/bestar'
+const utmaningView = '/utmaning'
+const winView = '/win'
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
@@ -14,5 +17,8 @@ export default {
     gameView,
     profileView,
     createcharView,
-    createuserView
+    createuserView,
+    bestarView,
+    utmaningView,
+    winView
 }

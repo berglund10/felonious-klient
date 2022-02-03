@@ -38,10 +38,9 @@ export const ProfileEgenskaper = () => {
     return (
         <div>
             Detta är dina egenskaper:
-            <button onClick={() => getUserInfo()}>Hämta info</button>
             <br />
             <ul>
-                {character.map(c => <li> Health: {c.health} Strength: {c.strength} Name: {c.name} Rundor: {c.rundor}</li>)}
+                {character.map(c => <li> Health: {c.health} Strength: {c.strength} Name: {c.name} Rundor: {c.rundor} Mynt: {c.mynt}</li>)}
             </ul>
             <br />
             <button onClick={() => deleteChar()}>Ta bort char</button>

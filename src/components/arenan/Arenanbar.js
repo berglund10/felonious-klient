@@ -15,7 +15,7 @@ export const Arenanbar = () => {
         <li className='profilelink' onClick={() => history(RoutingPath.profileView)} >Slumpduell</li>
         <li className='profilelink' onClick={() => history(RoutingPath.gameView)} > Turneringar</li>
         <li className='profilelink' onClick={() => history(RoutingPath.createcharView)} >Utmaningar</li>
-        <li className='profilelink' onClick={() => history(RoutingPath.profileView)} >   Bestar</li>
+        <li className='profilelink' onClick={() => history(RoutingPath.bestarView)} >   Bestar</li>
         <br/>
          </div>
     )

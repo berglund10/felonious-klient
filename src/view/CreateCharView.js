@@ -24,7 +24,6 @@ export const CreateCharView = () => {
 
     const username = localStorage.getItem('username')
 
-
     const createChar = () => {
         Axios.post(`http://localhost:3001/createchar`, {
             name: name,
@@ -33,7 +32,6 @@ export const CreateCharView = () => {
             rundor: 125,
             mynt: 100
         }).then((response) => {
-            console.log(response.data.rows[0].character_id)
             Axios.put(`http://localhost:3001/createchar`, {
                 username: username,
                 character_id: response.data.rows[0].character_id
@@ -41,23 +39,6 @@ export const CreateCharView = () => {
         }).then(() => {
             history('/game')
         })
-    }
-
-
-    const createCharacter = () => {
-        Axios.get(`http://localhost:3001/searchuser?username=${username}`, {
-        })
-            .then((response) => {
-                if(response.data[0].character === undefined) {
-                    Axios.post(`http://localhost:3001/char/${response.data[0]._id}`, {
-                        health: health,
-                        strength: strength,
-                    })
-                }
-            })
-            .then(() => {
-                history('/game')
-            })
     }
 
     return (

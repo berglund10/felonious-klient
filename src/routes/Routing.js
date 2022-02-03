@@ -9,6 +9,9 @@ import { UserContext } from '../shared/global/UserProvider'
 import { CreateCharView } from '../view/CreateCharView';
 import { CreateUserView } from '../view/CreateUserView';
 import { TemplateView } from '../components/template/TemplateView';
+import { BestarView } from '../view/BestarView';
+import { UtamingView } from '../view/UtmaningView';
+import { WinView } from '../view/WinView';
 
 
 
@@ -47,6 +50,9 @@ export const Routing = (props) => {
                 <Route path={RoutingPath.createcharView} element={navigateToView(<CreateCharView />)} />
                 <Route path={RoutingPath.createuserView} element={navigateToView(<CreateUserView />)} />
                 <Route path={'/profileEgenskaper'} element={navigateToView(<ProfileEgenskaper />)} />
+                <Route path={RoutingPath.bestarView} element={navigateToView(<BestarView />)} />
+                <Route path={RoutingPath.utmaningView} element={navigateToView(<UtamingView />)} />
+                <Route path={RoutingPath.winView} element={navigateToView(<WinView />)} />
             </Routes>
         </Router>
     )
