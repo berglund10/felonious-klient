@@ -6,24 +6,18 @@ export const ProfileEgenskaper = () => {
 
     useEffect(() => {
         getUserInfo()
-      });
+      },[]);
 
 
     const history = useNavigate()
-    const [health, setHealth] = useState()
-    const [strength, setStrength] = useState()
-    const [rundor, setRundor] = useState()
-    const [mynt, setMynt] = useState()
+    const [character, setCharacter] = useState([])
     const username = localStorage.getItem('username')
 
     const getUserInfo = () => {
         Axios.get(`http://localhost:3001/userinfo/?username=${username}`, {
         }).then((response) => {
-            if(response.data[0].health) {
-                setHealth(response.data[0].health)
-                setStrength(response.data[0].strength)
-                setRundor(response.data[0].rundor)
-                setMynt(response.data[0].mynt)
+            if(response.data) {
+                setCharacter(response.data)
             } 
         }).catch((error) => {
             console.log(error)
@@ -34,7 +28,7 @@ export const ProfileEgenskaper = () => {
         Axios.put(`http://localhost:3001/users`, {
             username: username
         }).then(() => {
-            history('/home')
+            history('/createchar')
         })
     }
 
@@ -46,16 +40,9 @@ export const ProfileEgenskaper = () => {
             Detta är dina egenskaper:
             <button onClick={() => getUserInfo()}>Hämta info</button>
             <br />
-            <br />
-            <br />
-            Hälsa: {health}
-            <br />
-            Rundor: {rundor}
-            <br />
-            Stryka: {strength}
-            <br />
-            Mynt: {mynt}
-            <br />
+            <ul>
+                {character.map(c => <li> Health: {c.health} Strength: {c.strength} Name: {c.name} Rundor: {c.rundor}</li>)}
+            </ul>
             <br />
             <button onClick={() => deleteChar()}>Ta bort char</button>
         </div>
