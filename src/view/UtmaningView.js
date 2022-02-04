@@ -1,7 +1,6 @@
 import React, {useEffect, useState}  from 'react'
 import {useLocation, useNavigate} from 'react-router-dom';
 import Axios from 'axios'
-import { WinView } from './WinView';
 
 export const UtamingView = () => {
 
@@ -24,7 +23,7 @@ export const UtamingView = () => {
     useEffect(() => {
         getOneBest()
         getUserInfo()
-      },[])
+      })
 
       const toWinView=(status)=>{
         history('/win',{state:{status:status}});

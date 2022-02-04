@@ -12,6 +12,7 @@ import { TemplateView } from '../components/template/TemplateView';
 import { BestarView } from '../view/BestarView';
 import { UtamingView } from '../view/UtmaningView';
 import { WinView } from '../view/WinView';
+import { KnegView } from '../view/KnegView';
 
 
 
@@ -25,10 +26,6 @@ export const Routing = (props) => {
 
     const blockRouteIfAuth = (navigateToView) => {
         return (authUser) ? <TemplateView><HomeView /></TemplateView> : navigateToView
-    }
-
-    const blockRouteIfNotAuth = (navigateToView) => {
-        return (!authUser) ? <LoginView /> : navigateToView
     }
 
     const navigateToView = (navigateToView) => {
@@ -53,6 +50,7 @@ export const Routing = (props) => {
                 <Route path={RoutingPath.bestarView} element={navigateToView(<BestarView />)} />
                 <Route path={RoutingPath.utmaningView} element={navigateToView(<UtamingView />)} />
                 <Route path={RoutingPath.winView} element={navigateToView(<WinView />)} />
+                <Route path={RoutingPath.knegView} element={navigateToView(<KnegView />)} />
             </Routes>
         </Router>
     )
