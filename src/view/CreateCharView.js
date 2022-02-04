@@ -38,6 +38,9 @@ export const CreateCharView = () => {
             })
         }).then(() => {
             history('/game')
+            
+        }).catch(() => {
+            alert("Måste skriva in INT")
         })
     }
 

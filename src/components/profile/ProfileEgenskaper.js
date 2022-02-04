@@ -8,6 +8,11 @@ export const ProfileEgenskaper = () => {
         getUserInfo()
       },[]);
 
+    const checkIfCharacterExist = () => {
+        return (character[0] === undefined) 
+        ? <button onClick={() => deleteChar()}>Skapa char</button>
+        : <button onClick={() => deleteChar()}>Ta bort char</button>
+    }
 
     const history = useNavigate()
     const [character, setCharacter] = useState([])
@@ -32,9 +37,6 @@ export const ProfileEgenskaper = () => {
         })
     }
 
-
-
-    // hämta charID sen hämta information om den och visa här
     return (
         <div>
             Detta är dina egenskaper:
@@ -43,7 +45,7 @@ export const ProfileEgenskaper = () => {
                 {character.map(c => <li> Health: {c.health} Strength: {c.strength} Name: {c.name} Rundor: {c.rundor} Mynt: {c.mynt}</li>)}
             </ul>
             <br />
-            <button onClick={() => deleteChar()}>Ta bort char</button>
+            <div>{checkIfCharacterExist()}</div>
         </div>
     )
 }
