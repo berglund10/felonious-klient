@@ -12,7 +12,7 @@ export const Profile = () => {
 
     useEffect(() => {
         getUserInfo()
-      })
+      },[])
     
     const getUserInfo = () => {
         Axios.get(`http://localhost:3001/userinfo/?username=${username}`, {

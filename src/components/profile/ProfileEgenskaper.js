@@ -6,8 +6,8 @@ export const ProfileEgenskaper = () => {
 
     useEffect(() => {
         getUserInfo()
-      },[]);
-
+      }, []);
+ 
     const checkIfCharacterExist = () => {
         return (character[0] === undefined) 
         ? <button onClick={() => deleteChar()}>Skapa char</button>

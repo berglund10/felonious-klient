@@ -32,6 +32,7 @@ export const UtamingView = () => {
 
 
     const utmanaBest = () => {
+        //skicka en post till backned istället med id.
         return (character[0].strength > bestar[0].strength)
         ? toWinView("vann")
         : toWinView("förlorade")

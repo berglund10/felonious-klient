@@ -16,12 +16,12 @@ export const Profilebar = () => {
 
     return(
         <div>
-        <li className='profilelink' onClick={() => history(RoutingPath.profileView)} >Info</li>
-        <li className='profilelink' onClick={() => history(RoutingPath.profileView)} >Biografi</li>
+        <li className='profilelink' onClick={() => history(RoutingPath.loginView)} >Info</li>
+        <li className='profilelink' onClick={() => history(RoutingPath.loginView)} >Biografi</li>
         <li className='profilelink' onClick={() => history(RoutingPath.gameView)} >Egenskaper</li>
         <li className='profilelink' onClick={() => history(RoutingPath.createcharView)} >Historia</li>
-        <li className='profilelink' onClick={() => history(RoutingPath.profileView)} >Statistik</li>
-        <li className='profilelink' onClick={() => history(RoutingPath.profileView)} >Utrustning</li>
+        <li className='profilelink' onClick={() => history(RoutingPath.loginView)} >Statistik</li>
+        <li className='profilelink' onClick={() => history(RoutingPath.loginView)} >Utrustning</li>
         <br/>
         <button onClick={() => logout()}>Logga ut</button>
          </div>
