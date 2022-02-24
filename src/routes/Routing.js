@@ -21,7 +21,7 @@ export const Routing = (props) => {
     const [authUser, setAuthUser] = useContext(UserContext)
 
     const checkIfUserAuth = () => {
-        setAuthUser(localStorage.getItem("username"))
+        setAuthUser(localStorage.getItem("username")) // kolla auth key
     }
 
     const blockRouteIfAuth = (navigateToView) => {

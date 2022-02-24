@@ -12,11 +12,7 @@ export const LoginView = () => {
             password: password
         })
         .then((response) => {
-            if(response.data.rows[0].username === username && response.data.rows[0].password === password) {
-                (response.data.rows[0].character_id === null) 
-                ? login('/createchar')
-                : login('/game')
-            }         
+            login('/createchar')
         })
         .catch((error) => {
             console.log(error)
