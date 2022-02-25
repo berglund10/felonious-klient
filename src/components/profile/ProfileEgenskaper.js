@@ -42,7 +42,7 @@ export const ProfileEgenskaper = () => {
             Detta är dina egenskaper:
             <br />
             <ul>
-                {character.map(c => <li> Health: {c.health} Strength: {c.strength} Name: {c.name} Rundor: {c.rundor} Mynt: {c.mynt}</li>)}
+                {character.map(c => <li key={c.id}> Health: {c.health} Strength: {c.strength} Name: {c.name} Rundor: {c.rundor} Mynt: {c.mynt}</li>)}
             </ul>
             <br />
             <div>{checkIfCharacterExist()}</div>

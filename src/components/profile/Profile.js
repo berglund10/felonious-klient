@@ -28,7 +28,7 @@ export const Profile = () => {
     return (
         <div>
             <img src={lacan} alt="Logo" width="130px" height="130px"/>
-                {character.map(c => <p>Grad: 1 <br/> Namn: {c.name} <br/> KP: {c.health}/{c.health} <br/> Tid: {c.rundor} Rundor <br/>Mynt: {c.mynt}<br/> Form: 100% </p>)}
+                {character.map(c => <p key={c.id}>Grad: 1 <br/> Namn: {c.name} <br/> KP: {c.health}/{c.health} <br/> Tid: {c.rundor} Rundor <br/>Mynt: {c.mynt}<br/> Form: 100% </p>)}
             <br/>
             <br/>
             <Profilebar/>

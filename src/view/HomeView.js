@@ -1,6 +1,7 @@
 import React, {useContext} from 'react'
 import { UserContext } from '../shared/global/UserProvider';
 import { LoginView } from './LoginView';
+import styled from 'styled-components';
 
 export const HomeView = () => {
 
@@ -8,7 +9,7 @@ export const HomeView = () => {
 
     const displayUserIfAuth = () => {
         return (authUser) 
-        ? <h1>Välkommen {authUser}</h1>
+        ? <Paragraph>Välkommen {authUser}</Paragraph>
         : <LoginView/>
     }
 
@@ -18,3 +19,7 @@ export const HomeView = () => {
         </div>
     )
 }
+
+const Paragraph = styled.h1`
+color: red;
+`
